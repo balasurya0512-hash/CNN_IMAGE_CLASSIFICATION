@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf Disease Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Leaf Disease Detection</h1>
+        <p class="subtitle">Upload a leaf image to detect whether it is Healthy, Powdery, or Rust.</p>
+
+        <form method="post" enctype="multipart/form-data">
+            <label for="image" class="upload-box">
+                <span>Choose image</span>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </label>
+            <button type="submit">Predict Disease</button>
+        </form>
+
+        {% if error %}
+            <div class="message error">{{ error }}</div>
+        {% endif %}
+
+        {% if image_filename %}
+            <div class="result-grid">
+                <div class="image-panel">
+                    <img src="{{ url_for('uploaded_file', filename=image_filename) }}" alt="Uploaded leaf">
+                </div>
+                <div class="info-panel">
+                    {% if prediction %}
+                        <h2>Prediction</h2>
+                        <div class="badge">{{ prediction }}</div>
+                        <p>Confidence: <strong>{{ confidence }}%</strong></p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

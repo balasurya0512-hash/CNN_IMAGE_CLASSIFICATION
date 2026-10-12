@@ -1,0 +1,38 @@
+# Python & Virtual Environments
+__pycache__/
+.pytest_cache/
+.venv/
+.vscode/
+
+# CNN Model Files & User Uploads
+*.keras
+uploads/
+
+# Dataset folders
+dataset/
+data/
+
+# Model files
+*.keras
+*.h5
+
+# Uploaded images
+uploads/
+
+# Python cache
+__pycache__/
+
+# Large image dataset
+/Computer vision/
+
+# Additional application - review separately
+/Plant_Disease_AI/
+
+# Python virtual environment and cache
+.venv/
+__pycache__/
+*.py[cod]
+
+# User uploads and temporary files
+uploads/
+.ipynb_checkpoints/
